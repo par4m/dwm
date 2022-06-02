@@ -10,8 +10,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
 static const int topbar             = 0;     /* 0 means bottom bar */
-static const char *fonts[]          = { "Terminus" };
-static const char dmenufont[]       = "Terminus";
+static const char *fonts[]          = { "curie:style=Regular" };
+static const char dmenufont[]       = "curie:style=Regular";
 //
 // The color schemes in dwm by default defines:
 //

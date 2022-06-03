@@ -72,6 +72,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
 	{ "firefox",  NULL,       NULL,       1,       0,           0,           -1 },
 	{ "St",       NULL,       NULL,       2,       0,           0,           -1 },
+	{ "Spotify",  NULL,       NULL,       5,       0,           0,           -1 }, // Not working
+	{ "spotify",  NULL,       NULL,       5,       0,           0,           -1 }, // Not working
 };
 
 /* layout(s) */
@@ -99,7 +101,9 @@ static const Layout layouts[] = {
 /* key definitions */
 // #define MODKEY Mod1Mask
 // Mod4 - Windows Key | Mod1 - Alt
-#define MODKEY Mod4Mask
+#define MODKEY Mod4Mask // windows key as mod
+#define MODKEY2 Mod1Mask // alt as mod
+#define MODKEY3 Mod3Mask // ctrl as mod
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -116,6 +120,16 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *upvol[]               = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",     NULL };
 static const char *downvol[]             = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",     NULL };
 static const char *mutevol[]             = { "/usr/bin/pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle",  NULL };
+
+// Media def
+//
+// playprev and playnext not working ;; Todo
+// static const char *playprev[]               = { "/usr/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.playerctld /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous", NULL };
+// static const char *playnext[]               = { "/usr/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.playerctld /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next", NULL };
+//
+static const char *playpause[]               = { "/usr/bin/playerctl", "play-pause", NULL };
+// static const char *runspotify[]               = { "LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -164,7 +178,15 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ MODKEY,                       XK_minus, spawn, {.v = downvol } },
 	{ MODKEY,                       XK_equal, spawn, {.v = upvol   } },
-	{ MODKEY,                       XK_0, spawn, {.v = mutevol } },
+	{ MODKEY,                       XK_BackSpace, spawn, {.v = mutevol } },
+  // Media + Spotify keys
+	{ MODKEY|ShiftMask ,             XK_v,    spawn,           SHCMD("LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify") }, // WindowsKey+Shift+v - Run spotify
+	{ MODKEY2 ,             XK_space,    spawn,           {.v = playpause } }, // Alt + Space - Play / Pause
+	{ MODKEY2,             XK_period,    spawn,           SHCMD("/usr/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.playerctld /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") }, // Alt + . - Next
+	{ MODKEY2 ,             XK_comma,    spawn,           SHCMD("/usr/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.playerctld /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") }, // Alt + , - Previous
+	{ MODKEY2 ,             XK_q,    spawn,           SHCMD("books") }, // Alt + q - Rofi Books
+	{ MODKEY2 ,             XK_z,    spawn,           SHCMD("screenshot") }, // Alt + z - screenshot
+	{ MODKEY ,             XK_z,    spawn,           SHCMD("rofi -show drun") }, // WindowsKey + z - screenshot
 };
 
 /* button definitions */

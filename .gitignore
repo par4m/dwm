@@ -3,3 +3,4 @@
 *.rej
 *.*.rej
 *.rej
+config.h

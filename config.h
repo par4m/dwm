@@ -93,7 +93,7 @@ static const Rule rules[] = {
 	{ "discord",  NULL,       NULL,       6,            0,           0,           -1 }, 
 	{ "TelegramDesktop",  NULL,       NULL,       6,            0,           0,           -1 }, 
   //
-	{ "Lxtask",  NULL,       NULL,       0,            0,           1,           -1 }, 
+	{ "Lxtask",  NULL,       NULL,       SCRATCHPAD_MASK_1,            0,           1,           -1 }, 
 };
 
 /* layout(s) */
@@ -168,7 +168,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_Tab,       shiftviewclients, { .i = +1 } },
 	{ MODKEY|ShiftMask,             XK_backslash, shiftviewclients, { .i = -1 } },
-	{ MODKEY|ShiftMask,             XK_s,    spawn,           SHCMD("skippy-xd") },
+	{ MODKEY2|ShiftMask,             XK_s,    spawn,           SHCMD("skippy-xd") },
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
@@ -193,7 +193,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_e,    spawn,           SHCMD("pkill dwm") }, // WindowsKey + Shift + e - kill dwm
-	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} }, // WindowsKey + Shift + r - restart dwm
+	{ MODKEY2|ShiftMask,             XK_r,      quit,           {0} }, // Alt + Shift + r - restart dwm
   // Volume Keys
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
@@ -216,6 +216,16 @@ static Key keys[] = {
 	{ MODKEY2 ,             XK_t,    spawn,           SHCMD("lxtask") }, // Alt + w - lxtask
 	{ MODKEY2 ,             XK_s,       shiftviewclients, { .i = +1 } }, // Alt + s - next tag
 	{ MODKEY2 ,             XK_a,       shiftviewclients, { .i = -1 } }, // Alt + s - previous tag
+  // Scratchpad (hide = add to scratchpad)
+    { MODKEY,                       XK_s, scratchpad_show, {.i = 1} },
+    { MODKEY,                       XK_y, scratchpad_show, {.i = 2} },
+    { MODKEY,                       XK_u, scratchpad_show, {.i = 3} },
+    { MODKEY|ShiftMask,             XK_s, scratchpad_hide, {.i = 1} },
+    { MODKEY|ShiftMask,             XK_y, scratchpad_hide, {.i = 2} },
+    { MODKEY|ShiftMask,             XK_u, scratchpad_hide, {.i = 3} },
+	  { MODKEY|ShiftMask,            XK_r, scratchpad_remove, {0} },
+
+
   //
 };
 

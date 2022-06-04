@@ -1,9 +1,0 @@
---- dwm.c	2020-07-05 16:05:02.555947738 -0300
-+++ dwm.c	2020-07-05 16:06:19.592609932 -0300
-@@ -1935,6 +1969,7 @@ updategeom(void)
- 					detachstack(c);
- 					c->mon = mons;
- 					attach(c);
- 					attachstack(c);
- 				}
- 				if (m == selmon)

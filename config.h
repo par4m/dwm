@@ -207,7 +207,7 @@ static Key keys[] = {
   // Scripts etc
 	{ MODKEY2 ,             XK_q,    spawn,           SHCMD("books") }, // Alt + q - Rofi Books
 	{ MODKEY2 ,             XK_z,    spawn,           SHCMD("screenshot") }, // Alt + z - screenshot
-	{ MODKEY ,             XK_z,    spawn,           SHCMD("rofi -show drun -modi drun  -drun-use-desktop-cache -no-lazy-grab") }, // WindowsKey + z - screenshot
+	{ MODKEY ,             XK_z,    spawn,           SHCMD("rofi -drun-use-desktop-cache -no-lazy-grab -show drun -modi drun") }, // WindowsKey + z - screenshot
 	{ MODKEY2 ,             XK_Return,    spawn,           SHCMD("kitty --single-instance") }, // Alt + Enter - kitty
 	{ MODKEY2 ,             XK_l,    spawn,           SHCMD("betterlockscreen -l") }, // Alt + l - betterlockscreen lock
 	{ MODKEY2 ,             XK_w,    spawn,           SHCMD("firefox") }, // Alt + w - firefox

@@ -80,7 +80,7 @@ static const Rule rules[] = {
 	{ "Termite",  NULL,       NULL,         2,            0,           0,           -1 }, 
 	{ "Alacritty",  NULL,       NULL,         2,            0,           0,           -1 }, 
   //
-	{ "obsidian",  NULL,       NULL,       3,            0,           0,           -1 }, 
+	{ "obsidian",  NULL,       NULL,       SCRATCHPAD_MASK_3,            0,           0,           -1 }, 
 	{ "VNote",  NULL,       NULL,       3,            0,           0,           -1 },
 	{ "Zathura",  NULL,       NULL,       3,            0,           0,           -1 }, 
   //
@@ -214,6 +214,8 @@ static Key keys[] = {
 	{ MODKEY2 ,             XK_l,    spawn,           SHCMD("betterlockscreen -l") }, // Alt + l - betterlockscreen lock
 	{ MODKEY2 ,             XK_w,    spawn,           SHCMD("firefox") }, // Alt + w - firefox
 	{ MODKEY2 ,             XK_t,    spawn,           SHCMD("lxtask") }, // Alt + w - lxtask
+	{ MODKEY2 ,             XK_o,    spawn,           SHCMD("obsidian") }, // Alt + o - obsidian
+	{ MODKEY2 ,             XK_n,    spawn,           SHCMD("notion-app") }, // Alt + o - Notion
 	{ MODKEY2 ,             XK_s,       shiftviewclients, { .i = +1 } }, // Alt + s - next tag
 	{ MODKEY2 ,             XK_a,       shiftviewclients, { .i = -1 } }, // Alt + s - previous tag
   // Scratchpad (hide = add to scratchpad)

@@ -70,10 +70,30 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-	{ "firefox",  NULL,       NULL,       1,       0,           0,           -1 },
-	{ "St",       NULL,       NULL,       2,       0,           0,           -1 },
-	{ "Spotify",  NULL,       NULL,       5,       0,           0,           -1 }, // Not working
-	{ "spotify",  NULL,       NULL,       5,       0,           0,           -1 }, // Not working
+	{ "firefox",  NULL,       NULL,       1,            0,           0,           -1 },
+	{ "firefoxdeveloperedition",  NULL,       NULL,       1,            0,           0,           -1 },
+	{ "Brave-browser",  NULL,       NULL,       1,            0,           0,           -1 },
+	{ "Chromium",  NULL,       NULL,       1,            0,           0,           -1 },
+  //
+	{ "St",       NULL,       NULL,       2,            0,           0,           -1 },
+	{ "kitty",  NULL,       NULL,         2,            0,           0,           -1 }, 
+	{ "Termite",  NULL,       NULL,         2,            0,           0,           -1 }, 
+	{ "Alacritty",  NULL,       NULL,         2,            0,           0,           -1 }, 
+  //
+	{ "obsidian",  NULL,       NULL,       3,            0,           0,           -1 }, 
+	{ "VNote",  NULL,       NULL,       3,            0,           0,           -1 },
+	{ "Zathura",  NULL,       NULL,       3,            0,           0,           -1 }, 
+  //
+	{ "Thunar",  NULL,       NULL,       4,            0,           0,           -1 }, 
+  //
+	{ "Spotify",  NULL,       NULL,       5,            0,           0,           -1 }, // Not working
+	{ "spotify",  NULL,       NULL,       5,            0,           0,           -1 }, // Not working
+	{ "Youtube Music",  NULL,       NULL,       5,            0,           0,           -1 },
+  //
+	{ "discord",  NULL,       NULL,       6,            0,           0,           -1 }, 
+	{ "TelegramDesktop",  NULL,       NULL,       6,            0,           0,           -1 }, 
+  //
+	{ "Lxtask",  NULL,       NULL,       0,            0,           1,           -1 }, 
 };
 
 /* layout(s) */
@@ -103,7 +123,7 @@ static const Layout layouts[] = {
 // Mod4 - Windows Key | Mod1 - Alt
 #define MODKEY Mod4Mask // windows key as mod
 #define MODKEY2 Mod1Mask // alt as mod
-#define MODKEY3 Mod3Mask // ctrl as mod
+#define MODKEY3 Mod3Mask // ctrl as mod // not working
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -170,8 +190,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_e,    spawn,           SHCMD("pkill dwm") }, // kill dwm
-	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} }, // restart dwm
+	{ MODKEY|ShiftMask,             XK_e,    spawn,           SHCMD("pkill dwm") }, // WindowsKey + Shift + e - kill dwm
+	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} }, // WindowsKey + Shift + r - restart dwm
   // Volume Keys
   { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
@@ -184,9 +204,15 @@ static Key keys[] = {
 	{ MODKEY2 ,             XK_space,    spawn,           {.v = playpause } }, // Alt + Space - Play / Pause
 	{ MODKEY2,             XK_period,    spawn,           SHCMD("/usr/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.playerctld /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") }, // Alt + . - Next
 	{ MODKEY2 ,             XK_comma,    spawn,           SHCMD("/usr/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.playerctld /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") }, // Alt + , - Previous
+  // Scripts etc
 	{ MODKEY2 ,             XK_q,    spawn,           SHCMD("books") }, // Alt + q - Rofi Books
 	{ MODKEY2 ,             XK_z,    spawn,           SHCMD("screenshot") }, // Alt + z - screenshot
-	{ MODKEY ,             XK_z,    spawn,           SHCMD("rofi -show drun") }, // WindowsKey + z - screenshot
+	{ MODKEY ,             XK_z,    spawn,           SHCMD("rofi -show drun -modi drun  -drun-use-desktop-cache -no-lazy-grab") }, // WindowsKey + z - screenshot
+	{ MODKEY2 ,             XK_Return,    spawn,           SHCMD("kitty --single-instance") }, // Alt + Enter - kitty
+	{ MODKEY2 ,             XK_l,    spawn,           SHCMD("betterlockscreen -l") }, // Alt + l - betterlockscreen lock
+	{ MODKEY2 ,             XK_w,    spawn,           SHCMD("firefox") }, // Alt + w - firefox
+	{ MODKEY2 ,             XK_t,    spawn,           SHCMD("lxtask") }, // Alt + w - lxtask
+  //
 };
 
 /* button definitions */

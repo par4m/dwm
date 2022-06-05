@@ -84,7 +84,8 @@ static const Rule rules[] = {
 	{ "VNote",  NULL,       NULL,       1 << 2,            0,           0,           -1 },
 	{ "Zathura",  NULL,       NULL,       1 << 2,            0,           0,           -1 }, 
   //
-	{ "Thunar",  NULL,       NULL,       1 << 3,            0,           0,           -1 }, 
+	// { "Thunar",  NULL,       NULL,       1 << 3,            0,           0,           -1 },  // added to scratchpad
+  //
   //
 	{ "Spotify",  NULL,       NULL,       1 << 4,            0,           0,           -1 }, // Not working
 	{ "spotify",  NULL,       NULL,       1 << 4,            0,           0,           -1 }, // Not working
@@ -94,6 +95,7 @@ static const Rule rules[] = {
 	{ "TelegramDesktop",  NULL,       NULL,       1 << 5,            0,           0,           -1 }, 
   //
 	{ "Lxtask",  NULL,       NULL,       SCRATCHPAD_MASK_1,            0,           1,           -1 }, 
+	{ "Thunar",  NULL,       NULL,       SCRATCHPAD_MASK_2,            0,           1,           -1 }, 
 };
 
 /* layout(s) */
@@ -216,6 +218,7 @@ static Key keys[] = {
 	{ MODKEY2 ,             XK_t,    spawn,           SHCMD("lxtask") }, // Alt + w - lxtask
 	{ MODKEY2 ,             XK_o,    spawn,           SHCMD("obsidian") }, // Alt + o - obsidian
 	{ MODKEY2 ,             XK_n,    spawn,           SHCMD("notion-app") }, // Alt + o - Notion
+	{ MODKEY2 ,             XK_e,    spawn,           SHCMD("emacsclient -c") }, // Alt + e - Notion
 	{ MODKEY2 ,             XK_s,       shiftviewclients, { .i = +1 } }, // Alt + s - next tag
 	{ MODKEY2 ,             XK_a,       shiftviewclients, { .i = -1 } }, // Alt + s - previous tag
   // Scratchpad (hide = add to scratchpad)
@@ -225,7 +228,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_s, scratchpad_hide, {.i = 1} },
     { MODKEY|ShiftMask,             XK_y, scratchpad_hide, {.i = 2} },
     { MODKEY|ShiftMask,             XK_u, scratchpad_hide, {.i = 3} },
-	  { MODKEY|ShiftMask,            XK_r, scratchpad_remove, {0} },
+	  { MODKEY|ShiftMask,             XK_r, scratchpad_remove, {0} },
 
 
   //

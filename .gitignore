@@ -1,6 +1,8 @@
+dwm
 *.o
 *.*.o
 *.rej
 *.*.rej
 *.rej
 config.h
+.ccls-cache/

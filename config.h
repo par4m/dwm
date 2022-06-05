@@ -80,18 +80,18 @@ static const Rule rules[] = {
 	{ "Termite",  NULL,       NULL,         2,            0,           0,           -1 }, 
 	{ "Alacritty",  NULL,       NULL,         2,            0,           0,           -1 }, 
   //
-	{ "obsidian",  NULL,       NULL,       SCRATCHPAD_MASK_3,            0,           0,           -1 }, 
-	{ "VNote",  NULL,       NULL,       3,            0,           0,           -1 },
-	{ "Zathura",  NULL,       NULL,       3,            0,           0,           -1 }, 
+	{ "obsidian",  NULL,       NULL,       1 << 2,            0,           0,           -1 }, 
+	{ "VNote",  NULL,       NULL,       1 << 2,            0,           0,           -1 },
+	{ "Zathura",  NULL,       NULL,       1 << 2,            0,           0,           -1 }, 
   //
-	{ "Thunar",  NULL,       NULL,       4,            0,           0,           -1 }, 
+	{ "Thunar",  NULL,       NULL,       1 << 3,            0,           0,           -1 }, 
   //
-	{ "Spotify",  NULL,       NULL,       5,            0,           0,           -1 }, // Not working
-	{ "spotify",  NULL,       NULL,       5,            0,           0,           -1 }, // Not working
-	{ "Youtube Music",  NULL,       NULL,       5,            0,           0,           -1 },
+	{ "Spotify",  NULL,       NULL,       1 << 4,            0,           0,           -1 }, // Not working
+	{ "spotify",  NULL,       NULL,       1 << 4,            0,           0,           -1 }, // Not working
+	{ "Youtube Music",  NULL,       NULL,       1 << 4,            0,           0,           -1 },
   //
-	{ "discord",  NULL,       NULL,       6,            0,           0,           -1 }, 
-	{ "TelegramDesktop",  NULL,       NULL,       6,            0,           0,           -1 }, 
+	{ "discord",  NULL,       NULL,       1 << 5,            0,           0,           -1 }, 
+	{ "TelegramDesktop",  NULL,       NULL,       1 << 5,            0,           0,           -1 }, 
   //
 	{ "Lxtask",  NULL,       NULL,       SCRATCHPAD_MASK_1,            0,           1,           -1 }, 
 };

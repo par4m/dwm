@@ -93,9 +93,10 @@ static const Rule rules[] = {
   //
 	{ "discord",  NULL,       NULL,       1 << 5,            0,           0,           -1 }, 
 	{ "TelegramDesktop",  NULL,       NULL,       1 << 5,            0,           0,           -1 }, 
-  //
+  // Scratchpad
 	{ "Lxtask",  NULL,       NULL,       SCRATCHPAD_MASK_1,            0,           1,           -1 }, 
 	{ "Thunar",  NULL,       NULL,       SCRATCHPAD_MASK_2,            0,           1,           -1 }, 
+	{ "Emacs",  NULL,       NULL,       SCRATCHPAD_MASK_3,            0,           1,           -1 }, 
 };
 
 /* layout(s) */
@@ -215,10 +216,11 @@ static Key keys[] = {
 	{ MODKEY2 ,             XK_Return,    spawn,           SHCMD("kitty --single-instance") }, // Alt + Enter - kitty
 	{ MODKEY2 ,             XK_l,    spawn,           SHCMD("betterlockscreen -l") }, // Alt + l - betterlockscreen lock
 	{ MODKEY2 ,             XK_w,    spawn,           SHCMD("firefox") }, // Alt + w - firefox
-	{ MODKEY2 ,             XK_t,    spawn,           SHCMD("lxtask") }, // Alt + w - lxtask
+	{ MODKEY2 ,             XK_t,    spawn,           SHCMD("lxtask") }, // Alt + t - lxtask
 	{ MODKEY2 ,             XK_o,    spawn,           SHCMD("obsidian") }, // Alt + o - obsidian
-	{ MODKEY2 ,             XK_n,    spawn,           SHCMD("notion-app") }, // Alt + o - Notion
-	{ MODKEY2 ,             XK_e,    spawn,           SHCMD("emacsclient -c") }, // Alt + e - Notion
+	{ MODKEY2 ,             XK_n,    spawn,           SHCMD("notion-app") }, // Alt + n - Notion
+	{ MODKEY2 ,             XK_e,    spawn,           SHCMD("emacsclient -c") }, // Alt + e - Doom Emacs
+	{ MODKEY2 ,             XK_k,    spawn,           SHCMD("thunar") }, // Alt + k - Thunar
 	{ MODKEY2 ,             XK_s,       shiftviewclients, { .i = +1 } }, // Alt + s - next tag
 	{ MODKEY2 ,             XK_a,       shiftviewclients, { .i = -1 } }, // Alt + s - previous tag
   // Scratchpad (hide = add to scratchpad)
@@ -228,7 +230,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_s, scratchpad_hide, {.i = 1} },
     { MODKEY|ShiftMask,             XK_y, scratchpad_hide, {.i = 2} },
     { MODKEY|ShiftMask,             XK_u, scratchpad_hide, {.i = 3} },
-	  { MODKEY|ShiftMask,            XK_r, scratchpad_remove, {0} },
+	  { MODKEY|ShiftMask,             XK_r, scratchpad_remove, {0} },
 
 
   //

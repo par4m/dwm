@@ -94,10 +94,10 @@ static const Rule rules[] = {
 	{ "discord",  NULL,       NULL,       1 << 5,            0,           0,           -1 }, 
 	{ "TelegramDesktop",  NULL,       NULL,       1 << 5,            0,           0,           -1 }, 
   // Scratchpad
-	{ "Lxtask",  NULL,       NULL,       SCRATCHPAD_MASK_1,            0,           1,           -1 }, 
-	{ "Thunar",  NULL,       NULL,       SCRATCHPAD_MASK_2,            0,           1,           -1 }, 
-	{ "Emacs",  NULL,       NULL,       SCRATCHPAD_MASK_3,            0,           1,           -1 }, 
-	{ "Pavucontrol",  NULL,       NULL,       SCRATCHPAD_MASK_4,            0,           1,           -1 }, 
+	// { "Lxtask",  NULL,       NULL,       SCRATCHPAD_MASK_1,            0,           1,           -1 }, 
+	// { "Thunar",  NULL,       NULL,       SCRATCHPAD_MASK_2,            0,           1,           -1 }, 
+	// { "Emacs",  NULL,       NULL,       SCRATCHPAD_MASK_3,            0,           1,           -1 }, 
+	// { "obsidian",  NULL,       NULL,       SCRATCHPAD_MASK_4,            0,           1,           -1 }, 
 };
 
 /* layout(s) */

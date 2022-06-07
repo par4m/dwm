@@ -215,13 +215,13 @@ static Key keys[] = {
 	{ MODKEY2 ,             XK_z,    spawn,           SHCMD("screenshot") }, // Alt + z - screenshot
 	{ MODKEY ,             XK_z,    spawn,           SHCMD("rofi -drun-use-desktop-cache -no-lazy-grab -show drun -modi drun") }, // WindowsKey + z - screenshot
 	{ MODKEY2 ,             XK_Return,    spawn,           SHCMD("kitty --single-instance") }, // Alt + Enter - kitty
-	{ MODKEY2 ,             XK_l,    spawn,           SHCMD("betterlockscreen -l") }, // Alt + l - betterlockscreen lock
+	{ MODKEY2|ShiftMask ,             XK_l,    spawn,           SHCMD("betterlockscreen -l") }, // Alt + l - betterlockscreen lock
 	{ MODKEY2 ,             XK_w,    spawn,           SHCMD("firefox") }, // Alt + w - firefox
 	{ MODKEY2 ,             XK_t,    spawn,           SHCMD("lxtask") }, // Alt + t - lxtask
 	{ MODKEY2 ,             XK_o,    spawn,           SHCMD("obsidian") }, // Alt + o - obsidian
 	{ MODKEY2 ,             XK_n,    spawn,           SHCMD("notion-app") }, // Alt + n - Notion
 	{ MODKEY2 ,             XK_e,    spawn,           SHCMD("emacsclient -c") }, // Alt + e - Doom Emacs
-	{ MODKEY2 ,             XK_k,    spawn,           SHCMD("thunar") }, // Alt + k - Thunar
+	{ MODKEY2|ShiftMask ,             XK_k,    spawn,           SHCMD("thunar") }, // Alt + k - Thunar
 	{ MODKEY2 ,             XK_s,       shiftviewclients, { .i = +1 } }, // Alt + s - next tag
 	{ MODKEY2 ,             XK_a,       shiftviewclients, { .i = -1 } }, // Alt + s - previous tag
   // Scratchpad (hide = add to scratchpad)

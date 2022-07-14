@@ -49,15 +49,15 @@ static const char dmenufont[]       = "curie:style=Regular";
 //
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#222222";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
+static const char col_gray3[]       = "#f9f9f4";
+static const char col_gray4[]       = "#f9f9f4";
 static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeTabActive]  = { "#bebebe", "#222222",  "#4A4A4A" },
-	[SchemeTabInactive]  = { "#bebebe", "#222222", "#4A4A4A" }
+	[SchemeTabActive]  = { "#f9f9f4","#222222",  "#4A4A4A" },
+	[SchemeTabInactive]  = { "#f9f9f4","#222222", "#4A4A4A" }
 };
 
 /* tagging */
@@ -206,7 +206,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal, spawn, {.v = upvol   } },
 	{ MODKEY,                       XK_BackSpace, spawn, {.v = mutevol } },
   // Media + Spotify keys
-	{ MODKEY|ShiftMask ,             XK_v,    spawn,           SHCMD("LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify") }, // WindowsKey+Shift+v - Run spotify
+	// { MODKEY|ShiftMask ,             XK_v,    spawn,           SHCMD("LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify") }, // WindowsKey+Shift+v - Run spotify
+	{ MODKEY|ShiftMask ,             XK_v,    spawn,           SHCMD("spotify") }, // WindowsKey+Shift+v - Run spotify
 	{ MODKEY2 ,             XK_space,    spawn,           {.v = playpause } }, // Alt + Space - Play / Pause
 	{ MODKEY2,             XK_period,    spawn,           SHCMD("/usr/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.playerctld /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") }, // Alt + . - Next
 	{ MODKEY2 ,             XK_comma,    spawn,           SHCMD("/usr/bin/dbus-send --print-reply --dest=org.mpris.MediaPlayer2.playerctld /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") }, // Alt + , - Previous

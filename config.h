@@ -47,17 +47,17 @@ static const char dmenufont[]       = "curie:style=Regular";
 //
 //     [SchemeSel]  = { "#FFFFFF", "#FF0000",  "#00FF00"  },
 //
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#E3CC94"; // not selected bg
 static const char col_gray2[]       = "#222222";
-static const char col_gray3[]       = "#f9f9f4";
-static const char col_gray4[]       = "#f9f9f4";
-static const char col_cyan[]        = "#005577";
+static const char col_gray3[]       = "#222222"; // not selected fg
+static const char col_gray4[]       = "#222222"; // selected tag fg
+static const char col_cyan[]        = "#D79921"; // selected tag bg and border 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeTabActive]  = { "#f9f9f4","#222222",  "#4A4A4A" },
-	[SchemeTabInactive]  = { "#f9f9f4","#222222", "#4A4A4A" }
+	[SchemeTabActive]  = { col_gray4 , col_gray1 ,  "#4A4A4A" }, // selected tab 
+	[SchemeTabInactive]  = { col_gray3 ,col_gray1 , "#4A4A4A" } // not selected tab
 };
 
 /* tagging */

@@ -144,7 +144,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *upvol[]               = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",     NULL };
 static const char *downvol[]             = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",     NULL };
 static const char *mutevol[]             = { "/usr/bin/pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle",  NULL };
-
+// static const char *dmenu_bluetooth[] = {"dblue -b -fn 'curie' -nb '#2E3440' -sf '#282828' -sb '#81A1C1' -nf '#bebebe'", NULL};
 // Media def
 //
 // playprev and playnext not working ;; Todo
@@ -158,6 +158,7 @@ static const char *playpause[]               = { "/usr/bin/playerctl", "play-pau
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("j4-menu") },
+	{ MODKEY2,                       XK_b,      spawn,          SHCMD("dblue -b -fn 'curie' -nb '#2E3440' -sf '#282828' -sb '#81A1C1' -nf '#bebebe'") },
 	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -220,7 +221,7 @@ static Key keys[] = {
 	{ MODKEY2 ,             XK_w,    spawn,           SHCMD("firefox") }, // Alt + w - firefox
 	{ MODKEY2 ,             XK_t,    spawn,           SHCMD("lxtask") }, // Alt + t - lxtask
 	{ MODKEY2 ,             XK_o,    spawn,           SHCMD("obsidian") }, // Alt + o - obsidian
-	{ MODKEY2 ,             XK_n,    spawn,           SHCMD("notion-app") }, // Alt + n - Notion
+	{ MODKEY2 ,             XK_n,    spawn,           SHCMD("networkmanager_dmenu") }, // Alt + n - Dmenu network manager
 	{ MODKEY2 ,             XK_e,    spawn,           SHCMD("emacsclient -c") }, // Alt + e - Doom Emacs
 	{ MODKEY2|ShiftMask ,             XK_k,    spawn,           SHCMD("thunar") }, // Alt + k - Thunar
 	{ MODKEY2 ,             XK_s,       shiftviewclients, { .i = +1 } }, // Alt + s - next tag

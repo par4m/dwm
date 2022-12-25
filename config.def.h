@@ -9,7 +9,7 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;     /* 0 means no bar */
-static const int topbar             = 0;     /* 0 means bottom bar */
+static const int topbar             = 1;     /* 0 means bottom bar */
 static const char *fonts[]          = { "curie:style=Regular" };
 static const char dmenufont[]       = "curie:style=Regular";
 //
@@ -215,7 +215,7 @@ static Key keys[] = {
   // Scripts etc
 	{ MODKEY2 ,             XK_q,    spawn,           SHCMD("books") }, // Alt + q - Rofi Books
 	{ MODKEY2 ,             XK_z,    spawn,           SHCMD("screenshot") }, // Alt + z - screenshot
-	{ MODKEY ,             XK_z,    spawn,           SHCMD("rofi -drun-use-desktop-cache -no-lazy-grab -show drun -modi drun") }, // WindowsKey + z - screenshot
+	{ MODKEY ,             XK_z,    spawn,           SHCMD("rofi -no-lazy-grab -show drun -modi drun") }, // WindowsKey + z - Rofi App Menu
 	{ MODKEY2 ,             XK_Return,    spawn,           SHCMD("kitty --single-instance") }, // Alt + Enter - kitty
 	{ MODKEY2|ShiftMask ,             XK_l,    spawn,           SHCMD("betterlockscreen -l") }, // Alt + l - betterlockscreen lock
 	{ MODKEY2 ,             XK_w,    spawn,           SHCMD("firefox") }, // Alt + w - firefox

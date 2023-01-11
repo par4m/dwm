@@ -158,7 +158,8 @@ static const char *playpause[]               = { "/usr/bin/playerctl", "play-pau
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("j4-menu") },
-	{ MODKEY2,                       XK_b,      spawn,          SHCMD("dblue -b -fn 'curie' -nb '#2E3440' -sf '#282828' -sb '#81A1C1' -nf '#bebebe'") },
+	{ MODKEY2,                       XK_b,      spawn,          SHCMD("dblue -fn 'curie' -nb '#2E3440' -sf '#282828' -sb '#81A1C1' -nf '#bebebe'") },
+	{ MODKEY2,                       XK_g,      spawn,          SHCMD("google.sh") },
 	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

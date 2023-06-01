@@ -82,6 +82,7 @@ static const Rule rules[] = {
     /* class      instance    title       tags mask     iscentered   isfloating
        monitor */
     {"Gimp", NULL, NULL, 0, 0, 1, -1},
+    {"eww-dashboard", NULL, NULL, 0, 0, 1, 1},
     {"firefox", NULL, NULL, 1, 0, 0, -1},
     {"firefoxdeveloperedition", NULL, NULL, 1, 0, 0, -1},
     {"Brave-browser", NULL, NULL, 1, 0, 0, -1},
@@ -95,12 +96,14 @@ static const Rule rules[] = {
     {"obsidian", NULL, NULL, 1 << 2, 0, 0, -1},
     {"VNote", NULL, NULL, 1 << 2, 0, 0, -1},
     {"Zathura", NULL, NULL, 1 << 2, 0, 0, -1},
+    {"eww", NULL, NULL, 1 << 0, 0, 1, 1},
     //
     // { "Thunar",  NULL,       NULL,       1 << 3,            0,           0,
     // -1 },  // added to scratchpad
     //
     //
-    {"Spotify", NULL, NULL, 1 << 4, 0, 0, -1}, // Not working
+    // {"Spotify", NULL, NULL, 1 << 4, 0, 0, -1}, // Not working
+    {"Spotify", NULL, NULL, 2, 0, 0, 1},
     {"spotify", NULL, NULL, 1 << 4, 0, 0, -1}, // Not working
     {"Youtube Music", NULL, NULL, 1 << 4, 0, 0, -1},
     //
@@ -210,8 +213,9 @@ static Key keys[] = {
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY | ShiftMask, XK_Return, zoom, {0}},
     {MODKEY, XK_Tab, view, {0}},
-    {MODKEY | ShiftMask, XK_Tab, shiftviewclients, {.i = +1}},
-    {MODKEY | ShiftMask, XK_backslash, shiftviewclients, {.i = -1}},
+    // {MODKEY | ShiftMask, XK_Tab, shiftviewclients, {.i = +1}},  - Already
+    // using Alt + a {MODKEY | ShiftMask, XK_backslash, shiftviewclients, {.i =
+    // -1}}, - Already using Alt + s
     {MODKEY2 | ShiftMask, XK_s, spawn, SHCMD("skippy-xd")},
     {MODKEY | ShiftMask, XK_q, killclient, {0}},
     {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
@@ -221,10 +225,28 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
+
+    // Monitor Bindings
+    //          Mod1-, Focus previous screen, if any.
+    //          Mod1-. Focus next screen, if any.
+    //          Mod1-Shift-,
+    //               Send focused window to previous screen, if any.
+    //          Mod1-Shift-.
+    //               Send focused window to next screen, if any.
+    //
     {MODKEY, XK_comma, focusmon, {.i = -1}},
     {MODKEY, XK_period, focusmon, {.i = +1}},
+    {MODKEY2, XK_Tab, focusmon, {.i = +1}}, // Mod + Tab - Focus on Next Screen
+
+    //
     {MODKEY | ShiftMask, XK_comma, tagmon, {.i = -1}},
     {MODKEY | ShiftMask, XK_period, tagmon, {.i = +1}},
+    {MODKEY2 | ShiftMask,
+     XK_a,
+     tagmon,
+     {.i = -1}}, // Send Window to Next Screen - Alt + Shift + a
+    //
+    //
     {MODKEY | ShiftMask, XK_h, layoutscroll, {.i = -1}},
     {MODKEY | ShiftMask, XK_l, layoutscroll, {.i = +1}},
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
@@ -240,6 +262,9 @@ static Key keys[] = {
     {MODKEY, XK_minus, spawn, {.v = downvol}},
     {MODKEY, XK_equal, spawn, {.v = upvol}},
     {MODKEY, XK_BackSpace, spawn, {.v = mutevol}},
+    {MODKEY2, XK_BackSpace, spawn,
+     SHCMD("airpods_toggle.sh")}, // Alt + BackSpace - AirPods Toggle
+    //
     // Media + Spotify keys
     // { MODKEY|ShiftMask ,             XK_v,    spawn,
     // SHCMD("LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify") }, //

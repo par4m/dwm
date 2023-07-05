@@ -62,7 +62,7 @@ static const char col_gray1[] = "#1e1e2e"; // not selected bg
 static const char col_gray2[] = "#3B4252"; // not selected border
 static const char col_gray3[] = "#bebebe"; // not selected fg
 static const char col_gray4[] = "#282828"; // selected tag fg
-static const char col_cyan[] = "#b48ead";  // selected tag bg and border
+static const char col_cyan[] = "#bebebe";  // selected tag bg and border
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
@@ -197,7 +197,7 @@ static Key keys[] = {
     //        "'#bebebe'")},
     // Catppuccin BLuetooth
     {MODKEY2, XK_b, spawn,
-     SHCMD("dblue -fn 'curie' -nb '#1e1e2e' -sf '#282828' -sb '#b48ead' -nf "
+     SHCMD("dblue -fn 'curie' -nb '#1e1e2e' -sf '#282828' -sb '#bebebe' -nf "
            "'#bebebe'")},
 
     {MODKEY2, XK_g, spawn, SHCMD("google.sh")},
